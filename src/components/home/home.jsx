@@ -1,10 +1,11 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './home.css'
 import Linhas from '../linhas/linhas'
 import Modal from '../modal/modal'
 
 
 export default function (){
+    const [isModalVisible, setIsModalVisible] = useState(false);
     return (
         <React.Fragment>
             <header>
@@ -17,7 +18,8 @@ export default function (){
                         <li><a href="">Malha</a></li>
                         <li><a href="">Plasticos</a></li>
                     </ul>
-                    <button type="button" data-toggle="modal" data-target="#exampleModal">login</button>
+                    <button onClick={() => setIsModalVisible(true)}>login</button>
+                    {isModalVisible ? <Modal onClose={() => setIsModalVisible(false)}/> : null}
                 </div>
             </header>
             <body class="d-flex">
